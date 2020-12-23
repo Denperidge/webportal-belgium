@@ -76,7 +76,7 @@ function RenderViews(language) {
     // Expand on the leftover data
     data.websites.forEach((website, websiteIndex) => {
         data.websites[websiteIndex].tags.forEach((tag, tagIndex) => {
-            data.websites[websiteIndex].tags.push(data.tags[tag]);
+            data.websites[websiteIndex].tags = data.websites[websiteIndex].tags.concat(data.tags[tag]);
         });
     });
 
