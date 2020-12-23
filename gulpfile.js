@@ -41,26 +41,45 @@ function RecursiveLanguageLookup(object, language) {
     return object;
 }
 
+function LoadJsonFile(filename) {
+    return JSON.parse(fs.readFileSync(filename));
+
+}
+
+function LoadJsonDir(dirname) {
+    var jsonDir = fs.readdirSync(dirname)
+    var jsonArray = [];
+    jsonDir.forEach((jsonFilename) => {
+        var json = LoadJsonFile(dirname + jsonFilename);
+        jsonArray.push(json);
+    });
+    return jsonArray;
+}
 
 function RenderViews(language) {
     // Load in consistent vars
-    var data = JSON.parse(fs.readFileSync("src/vars.json"));
-
-    // Load in website info
-    var websitesDir = fs.readdirSync("src/links/")
-    var websites = [];
-    websitesDir.forEach((websiteFile) => {
-        var website = JSON.parse(fs.readFileSync("src/links/" + websiteFile));
-
-        websites.push(website);
-    });
-    data.websites = websites;
+    var data = LoadJsonFile("src/vars.json");
 
     data.language = language;
+
+    // Load in tags info
+    data.tags = LoadJsonFile("src/config/tags.json");
+
+    // Load in website info
+    data.websites = LoadJsonDir("src/links/");
 
     // Set all variables to language value to simplify code
     // Instead of title[language], title can just be used
     data = RecursiveLanguageLookup(data, language);
+    
+    
+    // Expand on the leftover data
+    data.websites.forEach((website, websiteIndex) => {
+        data.websites[websiteIndex].tags.forEach((tag, tagIndex) => {
+            data.websites[websiteIndex].tags.push(data.tags[tag]);
+        });
+    });
+
 
     return src("src/**/index.pug")
         .pipe(pug({

@@ -1,13 +1,13 @@
 {
     "title": {
-        "nl": "betersorteren",
+        "nl": "Beter sorteren",
         "fr": "",
         "en": ""
     },
     "tags": {
-        "nl": "alleen wonen,milieu,ecologie,sorteren,afval",
-        "fr": "",
-        "en": ""
+        "nl": ["ecol", "indepen"],
+        "fr": [""],
+        "en": [""]
     },
     "description": {
         "nl": "Via betersorteren kan je per postcode zeer specifieke sorteerinstructies verkrijgen.",
