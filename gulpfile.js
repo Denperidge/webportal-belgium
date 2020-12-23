@@ -87,23 +87,19 @@ function RenderViews(language) {
     // Set all variables to language value to simplify code
     // Instead of title[language], title can just be used
     data = RecursiveLanguageLookup(data, language);
-    
-    console.log(data.tags)
 
 
     console.log(data.txt)
 
     // Expand on the leftover data
-    data.websites.forEach((website, websiteIndex) => {
-        data.websites[websiteIndex].tags.forEach((tag) => {
-            console.log(language)
-            console.log(tag)
-            console.log(data.tags)
-            console.log(data.tags[tag])
-            console.log("--")
-            data.websites[websiteIndex].tags = data.websites[websiteIndex].tags.concat(data.tags[tag].synonyms);
+    data.websites.map((website) => {
+        website.tags.map((tag) => {
+            console.log("tag: " + tag)
+            website.tags = website.tags.concat(data.tags[tag].synonyms);
         });
     });
+
+
 
 
     return src("src/**/index.pug")

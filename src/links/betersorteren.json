@@ -5,11 +5,7 @@
         "fr": "",
         "en": ""
     },
-    "tags": {
-        "nl": ["ecol", "indepen"],
-        "fr": [""],
-        "en": [""]
-    },
+    "tags": ["ecol", "indepen"],
     "description": {
         "nl": "Via betersorteren kan je per postcode zeer specifieke sorteerinstructies verkrijgen.",
         "fr": "",
