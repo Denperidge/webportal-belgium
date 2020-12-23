@@ -46,8 +46,8 @@ function LoadJsonFile(filename) {
 
 }
 
-function LoadJsonDir(dirname) {
-    var jsonDir = fs.readdirSync(dirname)
+function LoadJsonDirToArray(dirname) {
+    var jsonDir = fs.readdirSync(dirname);
     var jsonArray = [];
     jsonDir.forEach((jsonFilename) => {
         var json = LoadJsonFile(dirname + jsonFilename);
@@ -55,6 +55,18 @@ function LoadJsonDir(dirname) {
     });
     return jsonArray;
 }
+
+function LoadJsonDirToObject(dirname) {
+    var jsonDir = fs.readdirSync(dirname);
+    var jsonObject = {};
+    jsonDir.forEach((jsonFilename) => {
+        var json = LoadJsonFile(dirname + jsonFilename);
+        var name = jsonFilename.substring(0, jsonFilename.lastIndexOf("."));
+        jsonObject[name] = json;
+    });
+    return jsonObject;
+}
+
 
 function RenderViews(language) {
     // Load in consistent vars
@@ -66,17 +78,30 @@ function RenderViews(language) {
     data.tags = LoadJsonFile("src/config/tags.json");
 
     // Load in website info
-    data.websites = LoadJsonDir("src/links/");
+    data.websites = LoadJsonDirToArray("src/links/");
+
+    data.txt = LoadJsonDirToObject("src/txt/");
+
+
 
     // Set all variables to language value to simplify code
     // Instead of title[language], title can just be used
     data = RecursiveLanguageLookup(data, language);
     
+    console.log(data.tags)
+
+
+    console.log(data.txt)
 
     // Expand on the leftover data
     data.websites.forEach((website, websiteIndex) => {
-        data.websites[websiteIndex].tags.forEach((tag, tagIndex) => {
-            data.websites[websiteIndex].tags = data.websites[websiteIndex].tags.concat(data.tags[tag]);
+        data.websites[websiteIndex].tags.forEach((tag) => {
+            console.log(language)
+            console.log(tag)
+            console.log(data.tags)
+            console.log(data.tags[tag])
+            console.log("--")
+            data.websites[websiteIndex].tags = data.websites[websiteIndex].tags.concat(data.tags[tag].synonyms);
         });
     });
 

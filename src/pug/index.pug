@@ -2,6 +2,10 @@ extends template.pug
 block content
     header
         h1 #{projectname}
+    
+    nav
+        each tag in tags
+            include tagbutton
 
     main
         each website in websites

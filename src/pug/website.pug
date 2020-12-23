@@ -1,5 +1,5 @@
 article.website
     h3.websiteTitle #{website.title}
-    p.websiteTags #{website.tags.join(", ")}
+    p.websiteTags #{website.tags.synonyms}
     p.websiteDescription #{website.description}
     a.url(href=website.url) #{website.url}
