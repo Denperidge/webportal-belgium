@@ -3,14 +3,14 @@
     "langs": ["nl", "fr", "en"],
     "title": {
         "nl": "Beter sorteren",
-        "fr": "",
-        "en": ""
+        "fr": "Trions mieux",
+        "en": "Better sorting"
     },
     "tags": ["ecol", "indepen"],
     "description": {
-        "nl": "Via betersorteren kan je per postcode zeer specifieke sorteerinstructies verkrijgen.",
+        "nl": "Beter sorteren geeft locatiespecifieke sorteerinstructies voor specifieke gevallen (bv. shampoofles, zak voor koffiebonen...)",
         "fr": "",
-        "en": ""
+        "en": "Better sorting gives location-specific recycling instructions, even for specific cases (f.e. a shampoo bottle, an empty bag of coffee beans...)"
     },
     "biases": {
         "nl": [],
