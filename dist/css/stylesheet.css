@@ -1,0 +1,17 @@
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+  @media (min-width: 700px) {
+    main {
+      justify-content: stretch; } }
+
+.website {
+  width: 80%;
+  background-color: deepskyblue;
+  padding: 20px; }
+  @media (min-width: 700px) {
+    .website {
+      width: 40%; } }
+  .website h3 {
+    margin-top: 0px; }

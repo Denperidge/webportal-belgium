@@ -1,3 +1,29 @@
+$breakpoint: 700px;
+
+
 body {
+
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    @media (min-width: $breakpoint) {
+        justify-content: stretch;
+    }
+}
+
+.website {
+    width: 80%;
+    @media (min-width: $breakpoint) {
+        width: 40%;
+    }
     
+    background-color: deepskyblue;
+    padding: 20px;
+
+    h3 {
+        margin-top: 0px;
+    }
 }
