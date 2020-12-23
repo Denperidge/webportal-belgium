@@ -4,12 +4,9 @@ const pug = require("gulp-pug");
 const flatten = require("gulp-flatten");
 
 
-var languageCodes = ["nl", "fr", "en"];
-
-
 const browserSync = require("browser-sync").create();
 function WatchForChanges() {
-    watch(["src/**/*.pug", "src/**/*.json"], RenderViews);
+    watch("src/**/*{.pug,.json,.scss,.js}", RenderAllViews);
 }
 function StartBrowserSync() {
     browserSync.init({
