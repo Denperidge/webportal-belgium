@@ -26,7 +26,6 @@ function RecursiveLanguageLookup(object, language) {
         var objectKey = objectKeys[i];
         var objectValue = object[objectKey];
 
-        console.log(objectKey + " : " + objectValue);
 
         // If language value found, set it
         if (objectKey.toLowerCase().trim() == language.toLowerCase().trim()) {
