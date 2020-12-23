@@ -58,7 +58,7 @@ function LoadJsonDir(dirname) {
 
 function RenderViews(language) {
     // Load in consistent vars
-    var data = LoadJsonFile("src/vars.json");
+    var data = LoadJsonFile("src/config/vars.json");
 
     data.language = language;
 
@@ -72,7 +72,7 @@ function RenderViews(language) {
     // Instead of title[language], title can just be used
     data = RecursiveLanguageLookup(data, language);
     
-    
+
     // Expand on the leftover data
     data.websites.forEach((website, websiteIndex) => {
         data.websites[websiteIndex].tags.forEach((tag, tagIndex) => {
