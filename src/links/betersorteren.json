@@ -1,5 +1,6 @@
 {
     "id": "betersorteren",
+    "langs": ["nl", "fr", "en"],
     "title": {
         "nl": "Beter sorteren",
         "fr": "",

@@ -1,4 +1,3 @@
 - var title = txt.tagbutton.title.replace("{0}", tag.synonyms[0])
-a(href=`#${tag.id}`)
-    button
-        img(alt=tag.synonyms[0] title=title)
+button(value=tag.id)
+    img(alt=tag.synonyms[0] title=title)

@@ -92,8 +92,13 @@ function RenderViews(language) {
 
     // Expand on the leftover data
     data.websites.map((website) => {
+        website.fullTags = [];
         website.tags.map((tag) => {
-            website.fullTags = website.tags.concat(data.tags[tag].synonyms);
+            try {
+                website.fullTags = website.fullTags.concat(data.tags[tag].synonyms);
+            } catch (TypeError) {
+                console.error(`[${language}] Tag '${tag}' has no synonyms`);
+            }
         });
     });
 

@@ -14,5 +14,13 @@
             "fr": [],
             "en": []
         }
+    },
+    "sex": {
+        "id": "sex",
+        "synonyms": {
+            "nl": ["sex", "seks", "gender", "anticonceptie", "conceptie"],
+            "fr": [],
+            "en": []
+        }
     }
 }
