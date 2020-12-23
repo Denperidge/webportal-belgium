@@ -1,12 +1,15 @@
 const fs = require("fs");
 const { series, parallel, src, dest, watch } = require("gulp");
 const pug = require("gulp-pug");
+const sass = require("gulp-sass");
 const flatten = require("gulp-flatten");
 
+sass.compiler = require("node-sass");
 
 const browserSync = require("browser-sync").create();
 function WatchForChanges() {
     watch("src/**/*{.pug,.json,.scss,.js}", RenderAllViews);
+    watch("src/**/*.scss", RenderCSS);
 }
 function StartBrowserSync() {
     browserSync.init({
@@ -75,6 +78,12 @@ function RenderAllViews() {
         RenderViews("fr"),
         RenderViews("en")
     ]);
+}
+
+function RenderCSS() {
+    return src("src/**/*.scss")
+        .pipe(sass().on("error", sass.logError))
+        .pipe(dest("dist"));
 }
 
 exports.build = parallel(RenderAllViews)
