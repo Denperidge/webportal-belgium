@@ -69,6 +69,11 @@ function LoadJsonDirToObject(dirname) {
     return jsonObject;
 }
 
+function RenderUpperIndex() {
+    return src("src/index.pug")
+        .pipe(pug({}))
+        .pipe(dest("docs/"))
+}
 
 function RenderViews(language) {
     // Load in consistent vars
@@ -108,7 +113,7 @@ function RenderViews(language) {
     });
 
 
-    return src("src/**/index.pug")
+    return src(["src/**/index.pug", "!src/index.pug"])
         .pipe(pug({
             data: data
         }))
@@ -145,5 +150,5 @@ function RenderJS() {
         .pipe(dest("docs/"));
 }
 
-exports.build = parallel(RenderAllViews, RenderCSS, RenderJS)
+exports.build = parallel(RenderUpperIndex, RenderAllViews, RenderCSS, RenderJS)
 exports.default = series(exports.build, parallel(WatchForChanges, StartBrowserSync));
