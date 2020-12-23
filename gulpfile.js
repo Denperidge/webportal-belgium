@@ -89,17 +89,12 @@ function RenderViews(language) {
     data = RecursiveLanguageLookup(data, language);
 
 
-    console.log(data.txt)
-
     // Expand on the leftover data
     data.websites.map((website) => {
         website.tags.map((tag) => {
-            console.log("tag: " + tag)
             website.tags = website.tags.concat(data.tags[tag].synonyms);
         });
     });
-
-
 
 
     return src("src/**/index.pug")
