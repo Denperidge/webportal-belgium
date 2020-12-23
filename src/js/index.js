@@ -14,17 +14,34 @@ function Filter(e) {
     } else if (window.location.hash == "") return;
     var currentFilter = window.location.hash.substring(1);
 
+    
+
     // If the same filter is clicked twice, disable filter
     if (currentFilter == lastFilter) {
         window.location.hash = "";
         lastFilter = "";
-        $(".website").show();
-        
+        $(".website").show(700);
+        $("nav button").animate({
+            opacity: 1
+        }, 1500);
+
     } else {
         // If another filter is clicked, apply and save
         var category = currentFilter;
-        $(".website").hide();
-        $(".website." + category).show();
+        var categoryWebsites = $(".website." + category);
+
+        $(".website").not(categoryWebsites).hide(700);
+        categoryWebsites.show(700);
+
+        var clickedNavButton = $('nav button[value="' + currentFilter + '"]');
+
+        clickedNavButton.animate({
+            opacity: 1
+        }, 1500);
+        $("nav button").not(clickedNavButton).animate({
+            opacity: 0.25
+        }, 1500);
+
         lastFilter = currentFilter;
     }
 }
