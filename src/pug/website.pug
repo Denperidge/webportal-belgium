@@ -1,5 +1,5 @@
-article.website
+article.website(class=website.tags)
     h3.websiteTitle #{website.title}
-    p.websiteTags #{website.tags.join(", ")}
+    p.websiteTags #{website.fullTags.join(", ")}
     p.websiteDescription #{website.description}
     a.url(href=website.url) #{website.url}

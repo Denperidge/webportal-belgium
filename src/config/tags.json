@@ -1,5 +1,6 @@
 {
     "ecol": {
+        "id": "ecol",
         "synonyms": {
             "nl": ["milieu","ecologie","sorteren","afval"],
             "fr": [],
@@ -7,6 +8,7 @@
         }
     },
     "indepen": {
+        "id": "indepen",
         "synonyms": {
             "nl": ["alleen wonen", "onafhankelijkheid"],
             "fr": [],

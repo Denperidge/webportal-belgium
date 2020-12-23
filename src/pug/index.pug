@@ -1,7 +1,7 @@
 extends template.pug
 block content
     header
-        h1 #{projectname}
+        h1 #{projectName}
     
     nav
         each tag in tags
@@ -10,4 +10,6 @@ block content
     main
         each website in websites
             include website.pug
+    
+    script(src="../js/index.js")
     

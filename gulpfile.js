@@ -10,6 +10,7 @@ const browserSync = require("browser-sync").create();
 function WatchForChanges() {
     watch("src/**/*{.pug,.json,.scss,.js}", RenderAllViews);
     watch("src/**/*.scss", RenderCSS);
+    watch("src/**/*.js", RenderJS);
 }
 function StartBrowserSync() {
     browserSync.init({
@@ -92,7 +93,7 @@ function RenderViews(language) {
     // Expand on the leftover data
     data.websites.map((website) => {
         website.tags.map((tag) => {
-            website.tags = website.tags.concat(data.tags[tag].synonyms);
+            website.fullTags = website.tags.concat(data.tags[tag].synonyms);
         });
     });
 
@@ -120,5 +121,10 @@ function RenderCSS() {
         .pipe(dest("dist"));
 }
 
-exports.build = parallel(RenderAllViews)
+function RenderJS() {
+    return src("src/**/*.js")
+        .pipe(dest("dist/"));
+}
+
+exports.build = parallel(RenderAllViews, RenderCSS, RenderJS)
 exports.default = series(exports.build, parallel(WatchForChanges, StartBrowserSync));

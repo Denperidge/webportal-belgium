@@ -1,3 +1,10 @@
+nav {
+  display: flex;
+  justify-content: space-around; }
+  nav button {
+    flex-grow: 1;
+    margin: 20px; }
+
 main {
   display: flex;
   flex-wrap: wrap;
@@ -5,13 +12,14 @@ main {
   @media (min-width: 700px) {
     main {
       justify-content: stretch; } }
-
-.website {
-  width: 80%;
-  background-color: deepskyblue;
-  padding: 20px; }
-  @media (min-width: 700px) {
-    .website {
-      width: 40%; } }
-  .website h3 {
-    margin-top: 0px; }
+  main .website {
+    width: 80%;
+    background-color: deepskyblue;
+    padding: 20px; }
+    @media (min-width: 700px) {
+      main .website {
+        width: 40%; } }
+    main .website h3 {
+      margin-top: 0px; }
+    main .website.hidden {
+      display: none; }

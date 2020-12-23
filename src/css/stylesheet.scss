@@ -5,6 +5,15 @@ body {
 
 }
 
+nav {
+    display: flex;
+    justify-content: space-around;
+    button {
+        flex-grow: 1;
+        margin: 20px;
+    }
+}
+
 main {
     display: flex;
     flex-wrap: wrap;
@@ -12,18 +21,23 @@ main {
     @media (min-width: $breakpoint) {
         justify-content: stretch;
     }
-}
 
-.website {
-    width: 80%;
-    @media (min-width: $breakpoint) {
-        width: 40%;
-    }
     
-    background-color: deepskyblue;
-    padding: 20px;
+    .website {
+        width: 80%;
+        @media (min-width: $breakpoint) {
+            width: 40%;
+        }
+        
+        background-color: deepskyblue;
+        padding: 20px;
 
-    h3 {
-        margin-top: 0px;
+        h3 {
+            margin-top: 0px;
+        }
+
+        &.hidden {
+            display: none;
+        }
     }
 }
