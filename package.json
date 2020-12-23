@@ -1,0 +1,16 @@
+{
+  "name": "webenelux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "author": "Denperidge",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-flatten": "^0.4.0",
+    "gulp-pug": "^4.0.1"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.13"
+  }
+}
