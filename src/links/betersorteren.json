@@ -1,17 +1,25 @@
 {
     "title": {
-        "nl": "betersorteren"
+        "nl": "betersorteren",
+        "fr": "",
+        "en": ""
     },
     "tags": {
-        "nl": "alleen wonen,milieu,ecologie,sorteren,afval"
+        "nl": "alleen wonen,milieu,ecologie,sorteren,afval",
+        "fr": "",
+        "en": ""
     },
     "description": {
-        "nl": ""
+        "nl": "Via betersorteren kan je per postcode zeer specifieke sorteerinstructies verkrijgen.",
+        "fr": "",
+        "en": ""
     },
     "biases": {
-        "nl": "FostPlus"
+        "nl": [],
+        "fr": [],
+        "en": []
     },
-    "urls": {
+    "url": {
         "nl": "https://www.betersorteren.be/nl",
         "fr": "https://www.trionsmieux.be/fr",
         "en": "https://www.bettersorting.be/en"

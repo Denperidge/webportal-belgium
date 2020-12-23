@@ -1,4 +1,9 @@
 extends template.pug
 block content
-    h1 #{title}
-    p Test
+    h1 #{projectname}
+
+    span #{language}
+
+    each website in websites
+        include website.pug
+    
