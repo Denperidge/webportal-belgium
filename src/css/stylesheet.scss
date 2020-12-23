@@ -1,6 +1,12 @@
 $breakpoint: 700px;
 
 
+@each $tag, $colour in $tags {
+    .#{$tag} {
+        background-color: $colour;
+    }
+}
+
 body {
 
 }
@@ -25,7 +31,6 @@ main {
             width: 40%;
         }
         
-        background-color: deepskyblue;
         padding: 20px;
         margin: 20px;
 

@@ -1,3 +1,12 @@
+.ecol {
+  background-color: lime; }
+
+.indepen {
+  background-color: cyan; }
+
+.sex {
+  background-color: #ff3300; }
+
 nav {
   display: flex;
   justify-content: space-around; }
@@ -11,7 +20,6 @@ main {
   justify-content: space-around; }
   main .website {
     width: 80%;
-    background-color: deepskyblue;
     padding: 20px;
     margin: 20px; }
     @media (min-width: 700px) {

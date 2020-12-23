@@ -3,6 +3,7 @@ const { series, parallel, src, dest, watch } = require("gulp");
 const pug = require("gulp-pug");
 const sass = require("gulp-sass");
 const flatten = require("gulp-flatten");
+const header = require("gulp-header");
 
 sass.compiler = require("node-sass");
 
@@ -125,7 +126,16 @@ function RenderAllViews() {
 }
 
 function RenderCSS() {
+    var tagsAndColours = "$tags: (";
+    var tags = Object.entries(LoadJsonFile("src/config/tags.json"));
+    for (var [key, value] of tags) {
+        var colour = value.colour;
+        tagsAndColours += `"${key}": ${colour}, `;
+    }
+    tagsAndColours = tagsAndColours.trim(", ") + ");\n"
+
     return src("src/**/*.scss")
+        .pipe(header(tagsAndColours))
         .pipe(sass().on("error", sass.logError))
         .pipe(dest("dist"));
 }

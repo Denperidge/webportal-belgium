@@ -1,6 +1,7 @@
 {
     "ecol": {
         "id": "ecol",
+        "colour": "lime",
         "synonyms": {
             "nl": ["milieu","ecologie","sorteren","afval"],
             "fr": [],
@@ -9,6 +10,8 @@
     },
     "indepen": {
         "id": "indepen",
+        "colour": "cyan",
+
         "synonyms": {
             "nl": ["alleen wonen", "onafhankelijkheid"],
             "fr": [],
@@ -17,6 +20,7 @@
     },
     "sex": {
         "id": "sex",
+        "colour": "#ff3300",
         "synonyms": {
             "nl": ["sex", "seks", "gender", "anticonceptie", "conceptie"],
             "fr": [],
