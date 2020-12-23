@@ -21,7 +21,7 @@ function StartBrowserSync() {
 }
 
 
-function RenderViews() {
+function RenderViews(language) {
     // Load in consistent vars
     var data = JSON.parse(fs.readFileSync("src/vars.json"));
 
@@ -35,26 +35,24 @@ function RenderViews() {
     });
     data.websites = websites;
 
-    
-    var promises = [];
-    languageCodes.forEach((language) => {
-        // Generate website for each langauge
-        // Make a copy of data, since otherwise language assignment
-        // will go by reference and it gets all weird 
-        var dataCopy = data;
-        dataCopy["language"] = language;
-        console.log(dataCopy)
-        console.log(dataCopy.language);
-        promises.push(
-            src("src/**/index.pug")
-            .pipe(pug({
-                data: dataCopy
-            }))
-            .pipe(flatten())
-            .pipe(dest("dist/" + language + "/")));
-    });
-    return Promise.all(promises);
+    data.language = language;
+
+    return src("src/**/index.pug")
+        .pipe(pug({
+            data: data
+        }))
+        .pipe(flatten())
+        .pipe(dest("dist/" + language + "/"));
+
 }
 
-exports.build = parallel(RenderViews)
+function RenderAllViews() {
+    return Promise.all([
+        RenderViews("nl"),
+        RenderViews("fr"),
+        RenderViews("en")
+    ]);
+}
+
+exports.build = parallel(RenderAllViews)
 exports.default = series(exports.build, parallel(WatchForChanges, StartBrowserSync));
