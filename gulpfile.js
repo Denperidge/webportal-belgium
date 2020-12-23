@@ -17,6 +17,28 @@ function StartBrowserSync() {
     watch("dist/**").on("change", browserSync.reload);
 }
 
+function RecursiveLanguageLookup(object, language) {
+    var objectKeys = Object.keys(object);
+    for (var i=0; i < objectKeys.length; i++) {
+        var objectKey = objectKeys[i];
+        var objectValue = object[objectKey];
+
+        console.log(objectKey + " : " + objectValue);
+
+        // If language value found, set it
+        if (objectKey.toLowerCase().trim() == language.toLowerCase().trim()) {
+            object = objectValue;
+        }
+        else if (typeof(objectValue) == "object") {
+            object[objectKey] = RecursiveLanguageLookup(object[objectKey], language);
+        } else {
+            
+        }
+    }
+
+    return object;
+}
+
 
 function RenderViews(language) {
     // Load in consistent vars
@@ -33,6 +55,10 @@ function RenderViews(language) {
     data.websites = websites;
 
     data.language = language;
+
+    // Set all variables to language value to simplify code
+    // Instead of title[language], title can just be used
+    data = RecursiveLanguageLookup(data, language);
 
     return src("src/**/index.pug")
         .pipe(pug({
