@@ -15,11 +15,11 @@ function WatchForChanges() {
 }
 function StartBrowserSync() {
     browserSync.init({
-        server: "dist/",
+        server: "docs/",
         host: "localhost",
         startPath: "nl/"
     });
-    watch("dist/**").on("change", browserSync.reload);
+    watch("docs/**").on("change", browserSync.reload);
 }
 
 function RecursiveLanguageLookup(object, language) {
@@ -113,7 +113,7 @@ function RenderViews(language) {
             data: data
         }))
         .pipe(flatten())
-        .pipe(dest("dist/" + language + "/"));
+        .pipe(dest("docs/" + language + "/"));
 
 }
 
@@ -137,12 +137,12 @@ function RenderCSS() {
     return src("src/**/*.scss")
         .pipe(header(tagsAndColours))
         .pipe(sass().on("error", sass.logError))
-        .pipe(dest("dist"));
+        .pipe(dest("docs"));
 }
 
 function RenderJS() {
     return src("src/**/*.js")
-        .pipe(dest("dist/"));
+        .pipe(dest("docs/"));
 }
 
 exports.build = parallel(RenderAllViews, RenderCSS, RenderJS)
