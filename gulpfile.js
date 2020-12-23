@@ -80,6 +80,10 @@ function RenderViews(language) {
 
     // Load in website info
     data.websites = LoadJsonDirToArray("src/links/");
+    // Only keep websites available in the selected language
+    data.websites = data.websites.filter((website) => {
+        return website.langs.includes(language);
+    });
 
     data.txt = LoadJsonDirToObject("src/txt/");
 
