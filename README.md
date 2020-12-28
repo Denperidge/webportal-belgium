@@ -17,6 +17,12 @@ For a website to be added to the list, they must meet a bunch of criteria, inclu
 - Be useful to the general public
   - Websites for extremely specific scenarios could clog up the portal
 
+## Building and running locally
+1. Install gulp globally (`npm install -g gulp-cli`)
+2. Clone the repository
+3. Install the required packages (`npm install`)
+4. Run `gulp` to build and run
+
 ## Contributing
 This is an open-source project, and anyone should be able to suggest additions and deletions. You can do this through the [Issues](issues), [Discussions](discussions) and - if you've got some IT experience and some time to spare - [Pull Requests](pulls)
 
