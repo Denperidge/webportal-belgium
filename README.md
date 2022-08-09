@@ -1,3 +1,9 @@
+# Archived
+
+While I still love this idea, I don't have the resources to work and maintain this at the moment. Maybe in the future, who knows?
+
+---
+
 # Webportal-Belgium
 
 A mantainable list of links, to the most useful websites for Belgian citizens.
